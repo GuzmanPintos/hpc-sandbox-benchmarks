@@ -79,6 +79,7 @@ describe("buildReleasePlan matrix", () => {
 			"runcloud",
 			"tama",
 			"boat",
+			"tenki",
 		]);
 	});
 
@@ -110,6 +111,7 @@ describe("buildReleasePlan matrix", () => {
 	// an artifact a scoped backfill can ship. The plan refuses that impossible request before approval.
 	test("refuses a scope naming a provider the release lane cannot ship", () => {
 		expect(() => buildReleasePlan({ ...base, providers: "boat" })).toThrow(/boat/);
+		expect(() => buildReleasePlan({ ...base, providers: "tenki" })).toThrow(/tenki/);
 		expect(() => buildReleasePlan({ ...base, providers: "e2b,boat" })).toThrow(/cannot ship/);
 	});
 
@@ -134,10 +136,12 @@ describe("buildReleasePlan matrix", () => {
 		expect(plan.matrix.include.map((c) => c.provider)).toContain("blaxel");
 		expect(plan.matrix.include.map((c) => c.provider)).toContain("runloop");
 		expect(plan.matrix.include.map((c) => c.provider)).toContain("boat");
+		expect(plan.matrix.include.map((c) => c.provider)).toContain("tenki");
 		expect(plan.required).toContain("blaxel");
 		expect(plan.required).not.toContain("boat");
+		expect(plan.required).not.toContain("tenki");
 		expect(plan.required).not.toContain("runloop");
-		expect(Object.keys(RELEASE_UNSCOPABLE_PROVIDERS)).toEqual(["boat"]);
+		expect(Object.keys(RELEASE_UNSCOPABLE_PROVIDERS)).toEqual(["boat", "tenki"]);
 	});
 
 	// Everything keys off `partial`, never "did the operator type a list" — otherwise spelling out the

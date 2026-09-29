@@ -77,6 +77,7 @@ describe("@sandbox-benchmarks/schema providers", () => {
 			"runcloud",
 			"runloop",
 			"tama",
+			"tenki",
 			"vercel",
 		]);
 	});
@@ -249,6 +250,7 @@ describe("@sandbox-benchmarks/schema providers", () => {
 			novita: 0.23328,
 			runloop: 0.6336,
 			boat: 0.036,
+			tenki: 0.3312,
 		};
 		for (const [id, cost] of Object.entries(expected)) {
 			expect(hourlyCostAtTargetSpec(getProvider(id) as ProviderMeta)).toBeCloseTo(cost, 12);

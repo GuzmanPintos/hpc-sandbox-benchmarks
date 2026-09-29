@@ -74,6 +74,7 @@ function candidateLaunch(id: ProviderId, refs: CandidateRefs): CandidateLaunch {
 				createOptions: { image: `${refs.blaxelImageCandidate}:latest` },
 			};
 		case "boat":
+		case "tenki":
 			// Stock vendor image — no candidate artifact to point at.
 			return { artifact: { kind: "none" }, createOptions: {} };
 		case "novita":

@@ -103,6 +103,7 @@ describe("bench-suite driver vs legacy selection (Phase A unit 1)", () => {
 			"runcloud",
 			"runloop",
 			"tama",
+			"tenki",
 			"vercel",
 		]);
 		expect([...driverIds, ...adapterIds].sort()).toEqual(PROVIDERS.map((meta) => meta.id).sort());

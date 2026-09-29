@@ -144,6 +144,7 @@
         "@sandbox-benchmarks/runcloud": "workspace:*",
         "@sandbox-benchmarks/runloop": "workspace:*",
         "@sandbox-benchmarks/tama": "workspace:*",
+        "@sandbox-benchmarks/tenki": "workspace:*",
         "@sandbox-benchmarks/vercel": "workspace:*",
       },
       "devDependencies": {
@@ -369,6 +370,21 @@
         "typescript": "catalog:",
       },
     },
+    "packages/tenki": {
+      "name": "@sandbox-benchmarks/tenki",
+      "version": "0.0.0",
+      "dependencies": {
+        "@sandbox-benchmarks/driver": "workspace:*",
+        "@sandbox-benchmarks/schema": "workspace:*",
+        "@tenkicloud/sandbox": "catalog:computesdk",
+        "arktype": "catalog:",
+      },
+      "devDependencies": {
+        "@repo/tsconfig": "workspace:*",
+        "@types/bun": "catalog:",
+        "typescript": "catalog:",
+      },
+    },
     "packages/vercel": {
       "name": "@sandbox-benchmarks/vercel",
       "version": "0.0.0",
@@ -432,6 +448,7 @@
       "@namespacelabs/sdk": "1.0.0",
       "@run-cloud/sdk": "0.9.0",
       "@runloop/api-client": "1.28.0",
+      "@tenkicloud/sandbox": "1.3.0",
       "@vercel/sandbox": "2.9.2",
       "computesdk": "4.1.3",
       "e2b": "2.27.1",
@@ -996,6 +1013,8 @@
 
     "@sandbox-benchmarks/templates": ["@sandbox-benchmarks/templates@workspace:packages/templates"],
 
+    "@sandbox-benchmarks/tenki": ["@sandbox-benchmarks/tenki@workspace:packages/tenki"],
+
     "@sandbox-benchmarks/vercel": ["@sandbox-benchmarks/vercel@workspace:packages/vercel"],
 
     "@sinclair/typebox": ["@sinclair/typebox@0.25.24", "", {}, "sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ=="],
@@ -1023,6 +1042,8 @@
     "@superradcompany/microsandbox-win32-arm64-msvc": ["@superradcompany/microsandbox-win32-arm64-msvc@0.6.8", "", { "os": "win32", "cpu": "arm64" }, "sha512-cWXaHBleVZbTddVYiUSuChNbHWhzTnNkgBqhisSDcFa1FBa0g5sBzTBlcC0RAseMzs4F+6YqLbD040QOe/6deQ=="],
 
     "@superradcompany/microsandbox-win32-x64-msvc": ["@superradcompany/microsandbox-win32-x64-msvc@0.6.8", "", { "os": "win32", "cpu": "x64" }, "sha512-Asfn+8+CplKh05MyJIoRJzLCl1Z05B/n6Lc6+tpfFKmHjMkQw976L67AqqBQq4AxfkakBcpZYVHZQqUDxl5Fow=="],
+
+    "@tenkicloud/sandbox": ["@tenkicloud/sandbox@1.3.0", "", { "dependencies": { "@bufbuild/protobuf": "2.12.1", "@connectrpc/connect": "2.1.2", "@connectrpc/connect-node": "2.1.2", "ws": "8.21.3" } }, "sha512-wJ5dFLs7cZJl87ATP0MAZ0r8FIeYw1EorKu+JpQFxwwq6OYplewlGvpddBaOn1hLw601QL/jHXJzAKy8e85zvA=="],
 
     "@tootallnate/once": ["@tootallnate/once@2.0.0", "", {}, "sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A=="],
 
@@ -1997,6 +2018,14 @@
     "@protobuf-ts/plugin/typescript": ["typescript@3.9.10", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q=="],
 
     "@runloop/api-client/zod": ["zod@3.25.76", "", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
+
+    "@tenkicloud/sandbox/@bufbuild/protobuf": ["@bufbuild/protobuf@2.12.1", "", {}, "sha512-BvAMfS6LrgZiryOAZ4pBYucu4wG/Ei/9o9DZ9akbREnMLbPJiom2i8b9C8IsKErQoiKqVhrerzt3kOT/RrzLHg=="],
+
+    "@tenkicloud/sandbox/@connectrpc/connect": ["@connectrpc/connect@2.1.2", "", { "peerDependencies": { "@bufbuild/protobuf": "^2.7.0" } }, "sha512-MXkBijtcX09R10Eb6sFeIetc6w6746eio6xtfuyVOH7oQAacT1X0GzMIQFux6Qy8cq3W/T5qX5Bei8YbFtmRGA=="],
+
+    "@tenkicloud/sandbox/@connectrpc/connect-node": ["@connectrpc/connect-node@2.1.2", "", { "peerDependencies": { "@bufbuild/protobuf": "^2.7.0", "@connectrpc/connect": "2.1.2" } }, "sha512-+i/aAOpsI8sIx1mbYp6d99zvxaUSF6t/jP9Ux9maAmjsZPgmIQ3JuIeYi0zJIP9zlCnBlJjkpPosshCgdRuThQ=="],
+
+    "@tenkicloud/sandbox/ws": ["ws@8.21.3", "", { "peerDependencies": { "bufferutil": "^4.0.1", "utf-8-validate": ">=5.0.2" }, "optionalPeers": ["bufferutil", "utf-8-validate"] }, "sha512-201TZ/kPWxoPr/OKWjquZR1SWKXcvxdH+e1xrx89b3YbmzLMFCLfnaG1HFIgWzJOEWZ7MvpK++odZufgYR50Rw=="],
 
     "@ts-morph/common/minimatch": ["minimatch@3.1.5", "", { "dependencies": { "brace-expansion": "^1.1.7" } }, "sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w=="],
 

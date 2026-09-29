@@ -238,6 +238,7 @@ Do this in the GitHub UI (Settings → Environments / Rules / Actions), then del
    | `RUN_CLOUD_API_KEY` | run.cloud provider runtime and validation |
    | `TAMA_TOKEN` | tama provider runtime and validation |
    | `BOAT_API_KEY` | boat provider runtime and validation |
+   | `TENKI_API_KEY` | Tenki provider runtime and validation |
    <!-- <<< end generated: provider-secrets -->
 
    For Boat, a key created with the `ci` preset is insufficient: that preset omits

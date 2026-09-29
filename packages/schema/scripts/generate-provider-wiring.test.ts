@@ -270,6 +270,7 @@ describe("provider wiring projections", () => {
 			"runcloud",
 			"tama",
 			"boat",
+			"tenki",
 		]);
 		expect([...PROVIDER_IDS].filter((id) => fleet.waivers[id] !== undefined)).toEqual([]);
 
